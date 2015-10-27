@@ -35,10 +35,6 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/tinder/card': {
-      controller: 'TinderController',
-      action: 'card'
-    },
 
 
   /***************************************************************************
