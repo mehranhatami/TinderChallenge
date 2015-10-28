@@ -75,7 +75,7 @@ module.exports = {
 	/* To populate the table in JSON
 	 * Locally using MongoDB
 	 */
-	card: function(req, res) {
+	start: function(req, res) {
 
 		Tinder.create(users)
 		.exec(function usersCreated(err, tinders) {
@@ -83,23 +83,41 @@ module.exports = {
 			if(err)
 				console.log(err);
 			else {
-
-				return res.view('/tinder/card',{
-					tinders: tinders
-				});
+				console.log("in else")
+				return res.redirect('/tinder/card')
 			}
 		});
 	},
 
 
 	'1': function(req,res) {
+
 		res.view();
 	},
-	'card': function(req,res) {
-		res.view();
+
+	card: function(req,res) {
+		Tinder.find(function foundUsers(err, tinders) {
+			if(err)
+				return next(err);
+			res.view({
+				tinder: tinders
+			});
+		});
+
 	},
-	'2': function(req, res) {
-		res.view();
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 };

@@ -11,11 +11,6 @@
 
 
 
-  <% _.each(tinders, function (tinder) { %>
-    //  <p><%= tinder.name %></p>
-    // <% }) %>
-
-
 
 
   <div class="card" style="display: block;">
@@ -23,7 +18,12 @@
       <img style="height: 100%; overflow: hidden" src="/images/users/2/alyssa_main.jpg" />
     </div>
   </div>
-  <div class="card">
+
+
+
+
+
+  <!-- <div class="card">
     <div id="profile" style="display: block;">
       <img style="height: 100%; overflow: hidden" src="/images/users/4/jessica_main.jpg" />
     </div>
@@ -33,7 +33,7 @@
     <div id="profile" style="display: block;">
       <img style="height: 100%; overflow: hidden" src="/images/users/3/hannah_main.jpg" />
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -49,6 +49,16 @@
 $( document ).ready(function() {
 
 
+
+  <% for(var i=1; i<tinder.length+1; ++i) { %>
+
+
+    $('<div class="card"></div>').appendTo('#cardcontain');
+    $('<div id="profile"></div>').appendTo('.class');
+    var img = $('<img id="dynamic">');
+    img.attr('src', <%= tinder.imgURL[i] %>);
+    img.appendTo('#profile');
+  <% } %>
 
 
   $(".card").on("swiperight",function(){
