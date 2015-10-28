@@ -92,9 +92,6 @@ module.exports = {
 	},
 
 
-
-
-
 	'1': function(req,res) {
 		res.view();
 	},
